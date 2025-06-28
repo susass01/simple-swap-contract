@@ -21,7 +21,8 @@ This repository contains the \`SimpleSwap\` smart contract, which replicates bas
 \- Remix IDE for testing and deployment  
 \- Sepolia testnet
 
-📄 Contract Address (Sepolia)
+📄 Contract Address (Sepolia) 0x79102cd202BB93575F079a64213f5ddBCf725Cfd
+
 
 📦 Contracts Deployed
 
