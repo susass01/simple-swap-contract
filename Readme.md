@@ -1,64 +1,51 @@
-**SimpleSwap \- Smart Contract**
+SimpleSwap - Smart Contract
 
-This repository contains the \`SimpleSwap\` smart contract, which replicates basic functionalities of decentralized exchanges like Uniswap. The contract allows users to:
+Overview
 
-\- Add and remove liquidity to token pairs.  
-\- Swap one ERC20 token for another.  
-\- Query the price of a token.  
-\- Calculate expected output amounts.
-
-✅ Features
-
-\- Liquidity management with reserve tracking.  
-\- Token swapping with slippage protection.  
-\- Event emission for external monitoring.  
-\- Price and output estimation.
+SimpleSwap is a Solidity smart contract that replicates basic functionalities of Uniswap: adding/removing liquidity, swapping tokens, getting price, and calculating output amounts. The contract operates with ERC-20 tokens and does not rely on Uniswap's protocol.
+Contract address on Sepolia: 0xfd1FAB6DCA1A2164c9C3C3BE7EbBd2e9d3ef4af2
 
 🛠️ Technologies
 
-\- Solidity \`^0.8.0\`  
-\- OpenZeppelin ERC20  
-\- Remix IDE for testing and deployment  
-\- Sepolia testnet
+- Solidity `^0.8.0`
+- OpenZeppelin ERC20
+- Remix IDE for testing and deployment
+- Sepolia testnet
+Functionalities
+1. Add Liquidity - addLiquidity()
+Description: Allows users to add liquidity to a token pair pool.
+Tasks:
+Transfer tokens from user to contract.
+Calculate optimal contribution amounts.
+Update reserves and liquidity shares.
+Returns: Actual token amounts used and liquidity added.
+2. Remove Liquidity - removeLiquidity()
+Description: Allows users to withdraw their share of tokens from a pool.
+Tasks:
+Burn liquidity.
+Calculate and return token amounts.
+Returns: Token amounts received after withdrawal.
 
-📄 Contract Address (Sepolia) 0x79102cd202BB93575F079a64213f5ddBCf725Cfd
 
+3. Swap Tokens - swapExactTokensForTokens()
+Description: Swap an exact amount of one token for another.
+Tasks:
+Transfer input tokens.
+Calculate output amount.
+Transfer output tokens to recipient.
+Returns: Array containing input and output amounts.
+4. Get Price - getPrice()
+Description: Returns the price of tokenA in terms of tokenB based on current reserves.
+Returns: Price as a fixed-point number (18 decimals)
 
-📦 Contracts Deployed
+5. Get Output Amount - getAmountOut()
+Description: Calculates how many tokens will be received in a swap.
+Returns: Output token amount, factoring in a 0.3% fee.
 
-\- \*\*TokenA\*\*: \`0xA73025d7F27A2B3c298eC776890ddf36801EfAc0\`  
-\- \*\*TokenB\*\*: \`0xd008F7Cccc30fc317934BbC0c4B1EE7DcD108D1C\`  
-\- \*\*SimpleSwap\*\*: \`0x79102cd202BB93575F079a64213f5ddBCf725Cfd\`
+Deployment & Testing Notes
+Deployer Address: 0x24dF8324b227742482d4b4FA08506Cf84a276bd7
+Test Tokens: ERC-20 tokens deployed on Sepolia with sufficient supply.
+Test Functions Used: addLiquidity, removeLiquidity, swapExactTokensForTokens, getAmountOut, getPrice
+Gas optimized and validated with realistic parameters.
 
-🚀 How to Use
-
-**1\. Deploy Contracts**
-
-Deploy the following contracts:
-
-\- \`TokenA.sol\` and \`TokenB.sol\` with an initial supply.  
-\- \`SimpleSwap.sol\` after deploying tokens.
-
-**2\. Add Liquidity**
-
-Call \`approve()\` on both tokens to allow SimpleSwap to move them.
-
-**\`\`\`solidity**  
-TokenA.approve(simpleSwapAddress, amountA);  
-TokenB.approve(simpleSwapAddress, amountB);
-
-**Then call:**
-
-addLiquidity(tokenA, tokenB, amountADesired, amountBDesired, amountAMin, amountBMin, to, deadline);
-
-**3\. Swap Token**
-
-swapExactTokensForTokens(amountIn, amountOutMin, \[tokenA, tokenB\], to, deadline);
-
-**4\. Remove Liquidity**
-
-removeLiquidity(tokenA, tokenB, liquidity, amountAMin, amountBMin, to, deadline);
-
-**Verification**  
-The contract was deployed and verified on the Sepolia network
 
