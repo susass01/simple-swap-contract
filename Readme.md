@@ -3,7 +3,9 @@ SimpleSwap - Smart Contract
 Overview
 
 SimpleSwap is a Solidity smart contract that replicates basic functionalities of Uniswap: adding/removing liquidity, swapping tokens, getting price, and calculating output amounts. The contract operates with ERC-20 tokens and does not rely on Uniswap's protocol.
-Contract address on Sepolia: 0xfd1FAB6DCA1A2164c9C3C3BE7EbBd2e9d3ef4af2
+Contract address on Sepolia: 0xffd051025C37D5f9AD67bf208E8c9A031cF1De24
+TokenA: 0x50B9eC34cF65E95b6592F9140C58e7f9b950758c
+TokenB: 0xFf81eB07CaA9E64218b0F6D28Fe53d27b224E883
 
 🛠️ Technologies
 
