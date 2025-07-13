@@ -246,4 +246,7 @@ contract SimpleSwap {
     function getPairKey(address tokenA, address tokenB) external pure returns (bytes32 pairKey) {
         return _getPairKey(tokenA, tokenB);
     }
+    function transferFromContract(address token, address to, uint amount) external {
+    IERC20(token).transfer(to, amount);
+}
 }
